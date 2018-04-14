@@ -13,13 +13,13 @@
 <section>
     <h3>Upload File</h3>
 </section>
-
+<hr>
 <input id="lefile" type="file" style="display:none">
 
 <div class="input-append">
-    <input id="photoCover" class="input-large" type="text" style="height:30px;">
-    <a class="btn" onclick="$('input[id=lefile]').click();">Browse</a>
-    <button type="submit" class="btn btn-default">Upload</button>
+    <input id="photoCover" class="input-large" type="text" style="width: 300px;height:30px;">
+    <a class="btn btn-default" onclick="$('input[id=lefile]').click();" role="button">Browse</a>
+    <button type="submit" class="btn btn-primary">Upload</button>
 </div>
 <script type="text/javascript">
     $('input[id=lefile]').change(function() {

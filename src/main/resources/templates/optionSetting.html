@@ -16,19 +16,19 @@
 </head>
 <body>
 <section class="content-header">
-    <h3>Engine Plan Setting</h3>
+    <h3>Option Plan Setting</h3>
     <hr>
 </section>
 <section class="content table-content">
     <form class="form-inline" >
         <!-- 工具栏 -->
         <div id="toolbar">
-            <input type="button" value="add plan" id="addBtn" data-toggle="modal" data-target="#addModal"
+            <input type="button" value="add option" id="addBtn" data-toggle="modal" data-target="#addModal"
                    class="btn btn-primary" onclick="resetAddModal()"/>
-            <input type="button" value="modify plan" id="editBtn" data-toggle="modal"
-                   class="btn btn-primary" onclick="editEngine()"/>
-            <input type="button" value="delete plan" id="deleteBtn" data-toggle="modal"
-                   class="btn btn-primary" onclick="deleteEngine()"/>
+            <input type="button" value="modify option" id="editBtn" data-toggle="modal"
+                   class="btn btn-primary" onclick="editOption()"/>
+            <input type="button" value="delete option" id="deleteBtn" data-toggle="modal"
+                   class="btn btn-primary" onclick="deleteOption()"/>
         </div>
         <!-- bootstrapTable -->
     </form>
@@ -44,49 +44,48 @@
                 <h3>add plan</h3>
             </div>
             <div class="modal-body" >
-                <form id="addEngineForm" action="/engine/add" method="post" class="form-horizontal">
+                <form id="addOptionForm" action="/option/add" method="post" class="form-horizontal">
                     <div class="form-group">
-                        <label for="inputNO" class="col-sm-3 control-label">SO_NO</label>
+                        <label for="inputOpname" class="col-sm-3 control-label">option_name</label>
                         <div class="col-sm-7">
-                            <input type="text" name="soNo" class="col-sm-4 form-control" id="inputNo" placeholder="SO_NO"/>
+                            <input type="text" name="Opname" class="col-sm-4 form-control" id="inputOpname" placeholder="name"/>
                         </div>
-                        <label id="errorNo" for="inputNo" class="col-sm-3 control-label"></label>
+                        <label id="errorNo" for="inputOpname" class="col-sm-3 control-label"></label>
                     </div>
 
                     <div class="form-group">
-                        <label for="inputEngine_modle" class="col-sm-3 control-label">engine_modle</label>
+                        <label for="inputgZero" class="col-sm-3 control-label">g0_days</label>
                         <div class="col-sm-7">
-                            <input type="text" name="engineModle" class="col-sm-4 form-control" id="inputEngine_modle" placeholder="engine_modle"/>
+                            <input type="text" name="gZero" class="col-sm-4 form-control" id="inputgZero" placeholder="gZero"/>
                         </div>
-                        <label id="errorEngine_modle" for="inputEngine_modle" class="col-sm-3 control-label"></label>
+                        <label id="errorOption_modle" for="inputgZero" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label for="inputCustomer" class="col-sm-3 control-label">customer</label>
+                        <label for="inputgOne" class="col-sm-3 control-label">g1_days</label>
                         <div class="col-sm-7">
-                            <input type="text" name="customer" class="col-sm-4 form-control" id="inputCustomer" placeholder="customer"/>
+                            <input type="text" name="gOne" class="col-sm-4 form-control" id="inputgOne" placeholder="gOne"/>
                         </div>
-                        <label id="errorCustomer" for="inputCustomer" class="col-sm-3 control-label"></label>
+                        <label id="errorCustomer" for="inputgOne" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label for="inputOptionId" class="col-sm-3 control-label">option_id</label>
+                        <label for="inputgTwo" class="col-sm-3 control-label">g2_days</label>
                         <div class="col-sm-7">
-                            <input type="text" name="optionId" class="col-sm-4 form-control" id="inputOptionId" placeholder=""/>
+                            <input type="text" name="gTwo" class="col-sm-4 form-control" id="inputgTwo" placeholder=""/>
                         </div>
-                        <label id="errorOption" for="inputOptionId" class="col-sm-3 control-label"></label>
+                        <label id="errorgTwo" for="inputgTwo" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label for="inputStart_date" class="col-sm-3 control-label">start_date</label>
-                        <div class="input-group date form_date col-sm-7">
-                            <input class="form-control" id="inputStart_date" name="startDate"  type="text" readonly>
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        <label for="inputgThree" class="col-sm-3 control-label">g3_days</label>
+                        <div class="col-sm-7">
+                            <input type="text" name="gThree" class="col-sm-4 form-control" id="inputgThree" placeholder=""/>
                         </div>
-                        <label id="errorStart_date" for="inputStart_date" class="col-sm-3 control-label"></label>
+                        <label id="errorgThree" for="inputgTwo" class="col-sm-3 control-label"></label>
                     </div>
+
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="conf1" class="btn btn-default" onclick="addEngine()">Submit</button>
+                <button type="button" id="conf1" class="btn btn-default" onclick="addOption()">Submit</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetAddModal()">Cancel</button>
             </div>
         </div>
@@ -106,53 +105,51 @@
                     <div class="form-group" style="display:none">
                         <label for="editId" class="col-sm-3 control-label">ID</label>
                         <div class="col-sm-7">
-                            <input type="id" name="id"   class="form-control" id="editId" placeholder="ID" />
+                            <input type="id" name="id"   class="form-control" id="editId" placeholder="" />
                         </div>
                         <label id="errorId" for="editId" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label for="editSoNo" class="col-sm-3 control-label">soNo</label>
+                        <label for="editopname" class="col-sm-3 control-label">name</label>
                         <div class="col-sm-7">
-                            <input type="text" name="soNo" class="form-control" id="editSoNo" placeholder="soNo"/>
+                            <input type="text" name="opname" class="form-control" id="editopname" placeholder=""/>
                         </div>
-                        <label id="errorSoNo" for="editSoNo" class="col-sm-3 control-label"></label>
+                        <label id="errorSoNo" for="editopname" class="col-sm-3 control-label"></label>
                     </div>
 
                     <div class="form-group">
-                        <label for="editEngineModle" class="col-sm-3 control-label">engineModle</label>
+                        <label for="editgZero" class="col-sm-3 control-label">g0_days</label>
                         <div class="col-sm-7">
-                            <input type="text" name="engineModle" class="col-sm-4 form-control" id="editEngineModle" placeholder="engineModle"/>
+                            <input type="text" name="gZero" class="col-sm-4 form-control" id="editgZero" placeholder=""/>
                         </div>
-                        <label id="errorName" for="editEngineModle" class="col-sm-3 control-label"></label>
+                        <label id="errorName" for="editgZero" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label  for="editCustomer" class="col-sm-3 control-label">customer</label>
+                        <label  for="editgOne" class="col-sm-3 control-label">g1_days</label>
                         <div class="col-sm-7">
-                            <input type="text" name="customer" class="col-sm-4 form-control" id="editCustomer" placeholder="customer"/>
+                            <input type="text" name="gOne" class="col-sm-4 form-control" id="editgOne" placeholder=""/>
                         </div>
-                        <label id="errorCustomer_ed"  for="editCustomer" class="col-sm-3 control-label"></label>
+                        <label id="errorCustomer_ed"  for="editgOne" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group" >
-                        <label  for ="editOptionId" class="col-sm-3 control-label">optionId</label>
+                        <label  for ="editgTwo" class="col-sm-3 control-label">g2_days</label>
                         <div class="col-sm-7">
-                            <input type="text" name="optionId" class="col-sm-4 form-control" id="editOptionId" placeholder="optionId" />
+                            <input type="text" name="gTwo" class="col-sm-4 form-control" id="editgTwo" placeholder="" />
                         </div>
-                        <label id="errorOptionId" class="col-sm-3 control-label"></label>
+                        <label id="errorOptionId"  for="editgTwo" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group" >
-                        <label for="editStartDate" class="col-sm-3 control-label">startDate</label>
-                        <div class="input-group date form_date col-sm-7" data-date="" data-date-format="yyyy-mm-dd"
-                             data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                            <input class="form-control" id="editStartDate" name="startDate"  type="text" readonly>
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        <label  for ="editgThree" class="col-sm-3 control-label">g3_days</label>
+                        <div class="col-sm-7">
+                            <input type="text" name="gThree" class="col-sm-4 form-control" id="editgThree" placeholder="" />
                         </div>
-                        <label id="errorEditStartDate" class="col-sm-3 control-label"></label>
+                        <label id="errorgThreeedt" class="col-sm-3 control-label"></label>
                     </div>
+
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="conf" class="btn btn-default" onclick="updateEngine()">Submit</button>
+                <button type="button" id="conf" class="btn btn-default" onclick="updateOption()">Submit</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetAddModal()">Cancel</button>
             </div>
         </div>
@@ -203,7 +200,7 @@
             //极为重要，缺失无法执行queryParams，传递page参数
             contentType : "application/x-www-form-urlencoded",
             dataType:"json",
-            url:'/engine/all',
+            url:'/option/all',
             queryParams:queryParam,
             pagination:true,//显示分页条：页码，条数等
             striped:true,//隔行变色
@@ -221,22 +218,21 @@
                 field : "id",
                 visible: false
             }, {
-                title : "so_no",
-                field : "soNo"
+                title : "name",
+                field : "opname"
             }, {
-                title : "engine_modle",
-                field : "engineModle"
+                title : "g0_days",
+                field : "gZero"
 
             }, {
-                title : "customer",
-                field : "customer"
+                title : "g1_days",
+                field : "gOne"
             }, {
-                title : "optionId",
-                field : "optionId"
+                title : "g2_days",
+                field : "gTwo"
             }, {
-                title : "start_date",
-                field : "startDate",
-                sortable : true
+                title : "g3_days",
+                field : "gThree"
             }],
             search : true,//搜索
             searchOnEnterKey : true,
@@ -256,15 +252,15 @@
     }
     //点击取消后清空表单中已写信息
     function resetAddModal(){
-        document.getElementById("addEngineForm").reset();
+        document.getElementById("addOptionForm").reset();
     }
     //新增用户
-    function addEngine(){
-        var param = $("#addEngineForm").serializeArray();
+    function addOption(){
+        var param = $("#addOptionForm").serializeArray();
         debugger;
-        // $("#conf1").attr("onclick","addEngine()");  todo 这行可以删除吗
+        // $("#conf1").attr("onclick","addOption()");  todo 这行可以删除吗
         $.ajax({
-            url:"/engine/add",
+            url:"/option/add",
             method:"post",
             data:param,
             dataType:"json",
@@ -283,7 +279,7 @@
         });
     }
     //修改用户
-    function editEngine(){
+    function editOption(){
         //获取选中行的数据
         var rows = $("#dataGrid").bootstrapTable('getSelections');
         if(rows.length!=1){
@@ -292,19 +288,19 @@
         }else{
             var row = rows[0];
             $('#editId').val(row.id);
-            $('#editSoNo').val(row.soNo);
-            $('#editEngineModle').val(row.engineModle);
-            $('#editCustomer').val(row.customer);
-            $('#editOptionId').val(row.optionId);
-            $('#editStartDate').val(row.startDate);
+            $('#editopname').val(row.opname);
+            $('#editgZero').val(row.gZero);
+            $('#editgOne').val(row.gOne);
+            $('#editgTwo').val(row.gTwo);
+            $('#editgThree').val(row.gThree);
             $("#editModal").modal("show");
         }
     }
-    function updateEngine(){
+    function updateOption(){
         var param = $("#editForm").serializeArray();
         //设为disable则无法获取
         $.ajax({
-            url:"/engine/update",
+            url:"/option/update",
             method:"post",
             data:param,
             dataType:"json",
@@ -322,37 +318,38 @@
         });
     }
 
-    function deleteEngine(){
+    function deleteOption(){
         var rows = $("#dataGrid").bootstrapTable("getSelections");
         var ids = [];
         var len = rows.length;
         for(var i=0;i<len;i++){
             ids.push(rows[i].id);
         }
-        debugger;
         if(rows.length<1){
             document.getElementById("tipContent").innerText="请至少选择一行数据";
             $("#tip").modal('show');
-        } else {
+        }else{
             $.ajax({
-                url: "/engine/delete",
-                dataType: "json",
+                url:"/option/delete",
+                dataType:"json",
                 traditional: true,//属性在这里设置
-                method: "post",
-                data: {
-                    "ids": ids
+                method:"post",
+                data:{
+                    "ids":ids
                 },
-                success: function (data) {
-                    document.getElementById("tipContent").innerText = "删除成功";
+                success:function(data){
+                    document.getElementById("tipContent").innerText="删除成功";
                     $("#tip").modal('show');
                     $("#dataGrid").bootstrapTable("refresh");
                 },
-                error: function () {
-                    document.getElementById("tipContent").innerText = "删除失败";
+                error:function(){
+                    document.getElementById("tipContent").innerText="删除失败";
                     $("#tip").modal('show');
                 }
             });
         }
+
+
     }
 
 </script>

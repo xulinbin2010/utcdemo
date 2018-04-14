@@ -1,11 +1,10 @@
 package com.ntt.controller;
 
-import com.github.pagehelper.PageHelper;
-import com.ntt.model.Engine;
-import com.ntt.service.EngineService;
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
+import com.ntt.model.Option;
+import com.ntt.service.OptionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,19 +15,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping({"/engine"})
-public class EngineController {
+@RequestMapping({"/option"})
+public class OptionController {
 
 
     @Autowired
-    EngineService engineService;
-
+    OptionService optionService;
 
 
     @ResponseBody
     @RequestMapping("/add")
-    public String addEngine(Engine engine) {
-        int i = engineService.addEngine(engine);
+    public String addOption(Option option) {
+        int i = optionService.addOption(option);
         JSONObject result = new JSONObject();
         if(i>0){
             System.out.println("add success");
@@ -42,8 +40,8 @@ public class EngineController {
 
     @ResponseBody
     @RequestMapping("/update")
-    public String updateEngine(Engine engine) {
-        int i = engineService.editEngine(engine);
+    public String updateOption(Option option) {
+        int i = optionService.editOption(option);
         JSONObject result = new JSONObject();
         result.put("state", "success");
         return result.toJSONString();
@@ -51,11 +49,11 @@ public class EngineController {
 
     @ResponseBody
     @RequestMapping("/delete")
-    public String deleteEngine(HttpServletRequest request) {
+    public String deleteOption(HttpServletRequest request) {
         String[] list=request.getParameterValues("ids");
 
         System.out.println(list);
-        int i = engineService.deleteEngines(list);
+        int i = optionService.deleteOptions(list);
         JSONObject result = new JSONObject();
         if(i>0) {
             result.put("state", "success");
@@ -68,20 +66,18 @@ public class EngineController {
 
     @ResponseBody
     @RequestMapping(value = "/all", produces = {"html/text;charset=UTF-8"})
-    public String  findAllEngine(@RequestParam int pageNumber,@RequestParam int pageSize,HttpServletResponse response){
+    public String  findAllOption(@RequestParam int pageNumber, @RequestParam int pageSize, HttpServletResponse response){
         response.setContentType("text/json");
         response.setCharacterEncoding("utf-8");
-        List<Engine> allEngine = engineService.findAllEngine();
-        int total = allEngine.size();
+        List<Option> allOption = optionService.findAllOption();
+        int total = allOption.size();
         PageHelper.startPage(pageNumber,pageSize);
-        List<Engine> pageInfo=engineService.findAllEngine();
+        List<Option> pageInfo=optionService.findAllOption();
         JSONObject result = new JSONObject();
         result.put("rows",pageInfo);
         result.put("total",total);
         System.out.println(result.toJSONString());
         return result.toJSONString();
     }
-
-
 
 }
