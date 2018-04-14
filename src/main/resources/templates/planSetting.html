@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title></title>
     <link rel="stylesheet" href="Bootstrap/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="Bootstrap/bootstrap/css/grid.css">
     <link rel="stylesheet" href="Bootstrap/bootstrap-table.css">
     <link rel="stylesheet" href="Bootstrap/bootstrap-datetimepicker.min.css">
     <script src="Bootstrap/jquery-1.9.1.min.js"></script>
@@ -41,12 +40,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content" >
             <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h3>add plan</h3>
             </div>
             <div class="modal-body" >
                 <form id="addEngineForm" action="/engine/add" method="post" class="form-horizontal">
                     <div class="form-group">
-                        <label for="inputNO" class="col-sm-2 control-label">SO_NO</label>
+                        <label for="inputNO" class="col-sm-3 control-label">SO_NO</label>
                         <div class="col-sm-7">
                             <input type="text" name="soNo" class="col-sm-4 form-control" id="inputNo" placeholder="SO_NO"/>
                         </div>
@@ -54,30 +54,30 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="inputEngine_modle" class="col-sm-2 control-label">engine_modle</label>
+                        <label for="inputEngine_modle" class="col-sm-3 control-label">engine_modle</label>
                         <div class="col-sm-7">
-                            <input type="text" name="engineModle" class="form-control" id="inputEngine_modle" placeholder="engine_modle"/>
+                            <input type="text" name="engineModle" class="col-sm-4 form-control" id="inputEngine_modle" placeholder="engine_modle"/>
                         </div>
                         <label id="errorEngine_modle" for="inputEngine_modle" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label for="inputCustomer" class="col-sm-2 control-label">customer</label>
+                        <label for="inputCustomer" class="col-sm-3 control-label">customer</label>
                         <div class="col-sm-7">
-                            <input type="text" name="customer" class=" form-control" id="inputCustomer" placeholder="customer"/>
+                            <input type="text" name="customer" class="col-sm-4 form-control" id="inputCustomer" placeholder="customer"/>
                         </div>
                         <label id="errorCustomer" for="inputCustomer" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label for="inputOptionId" class="col-sm-2 control-label">option_id</label>
+                        <label for="inputOptionId" class="col-sm-3 control-label">option_id</label>
                         <div class="col-sm-7">
-                            <input type="text" name="optionId" class="form-control" id="inputOptionId" placeholder=""/>
+                            <input type="text" name="optionId" class="col-sm-4 form-control" id="inputOptionId" placeholder=""/>
                         </div>
                         <label id="errorOption" for="inputOptionId" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label for="inputStart_date" class="col-sm-2 control-label">start_date</label>
+                        <label for="inputStart_date" class="col-sm-3 control-label">start_date</label>
                         <div class="input-group date form_date col-sm-7">
-                            <input class="form-control" id="inputStart_date" name="startDate" size="16" type="text" value="" readonly>
+                            <input class="form-control" id="inputStart_date" name="startDate"  type="text" readonly>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
@@ -97,20 +97,21 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h3>Modify</h3>
             </div>
             <div class="modal-body">
 
                 <form id="editForm" method="post" class="form-horizontal">
                     <div class="form-group" style="display:none">
-                        <label for="editId" class="col-sm-2 control-label">ID</label>
+                        <label for="editId" class="col-sm-3 control-label">ID</label>
                         <div class="col-sm-7">
                             <input type="id" name="id"   class="form-control" id="editId" placeholder="ID" />
                         </div>
                         <label id="errorId" for="editId" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label for="editSoNo" class="col-sm-2 control-label">soNo</label>
+                        <label for="editSoNo" class="col-sm-3 control-label">soNo</label>
                         <div class="col-sm-7">
                             <input type="text" name="soNo" class="form-control" id="editSoNo" placeholder="soNo"/>
                         </div>
@@ -118,34 +119,33 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="editEngineModle" class="col-sm-2 control-label">engineModle</label>
+                        <label for="editEngineModle" class="col-sm-3 control-label">engineModle</label>
                         <div class="col-sm-7">
                             <input type="text" name="engineModle" class="col-sm-4 form-control" id="editEngineModle" placeholder="engineModle"/>
                         </div>
                         <label id="errorName" for="editEngineModle" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label  for="editCustomer" class="col-sm-2 control-label">customer</label>
+                        <label  for="editCustomer" class="col-sm-3 control-label">customer</label>
                         <div class="col-sm-7">
                             <input type="text" name="customer" class="col-sm-4 form-control" id="editCustomer" placeholder="customer"/>
                         </div>
                         <label id="errorCustomer_ed"  for="editCustomer" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group" >
-                        <label  for ="editOptionId" class="col-sm-2 control-label">optionId</label>
+                        <label  for ="editOptionId" class="col-sm-3 control-label">optionId</label>
                         <div class="col-sm-7">
                             <input type="text" name="optionId" class="col-sm-4 form-control" id="editOptionId" placeholder="optionId" />
                         </div>
                         <label id="errorOptionId" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group" >
-                        <label  for ="editStartDate" class="col-sm-2 control-label">startDate</label>
-                        <div class="col-sm-7">
-                            <div class="input-group date form_date col-sm-7" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                <input class="form-control" id="editStartDate" name="startDate" size="16" type="text" value="" readonly>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                            </div>
+                        <label for="editStartDate" class="col-sm-3 control-label">startDate</label>
+                        <div class="input-group date form_date col-sm-7" data-date="" data-date-format="yyyy-mm-dd"
+                             data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                            <input class="form-control" id="editStartDate" name="startDate"  type="text" readonly>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                         <label id="errorEditStartDate" class="col-sm-3 control-label"></label>
                     </div>
@@ -227,7 +227,6 @@
             uniqueId:"id",//Indicate an unique identifier for each row
             dataPagination:"true"  ,//是否支持分页
             sidePagination:"server",//在服务器分页
-            height:"600",
             toolbar:"#toolbar",//工具栏
             columns : [{
                 checkbox:"true",
@@ -328,6 +327,7 @@
                 if(data.state=="success"){
                     $("#editModal").modal("hide");
                     document.getElementById("tipContent").innerText="修改成功";
+                    $("#dataGrid").bootstrapTable('refresh');
                     $("#tip").modal('show');
                 }
             },
