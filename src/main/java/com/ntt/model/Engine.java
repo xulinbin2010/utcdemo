@@ -15,6 +15,8 @@ public class Engine {
 
     private String startDate;
 
+    private Option option;
+
     public Integer getId() {
         return id;
     }
@@ -61,5 +63,13 @@ public class Engine {
 
     public void setStartDate(String startDate) {
         this.startDate = startDate;
+    }
+
+    public Option getOption() {
+        return option;
+    }
+
+    public void setOption(Option option) {
+        this.option = option;
     }
 }

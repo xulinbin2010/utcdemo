@@ -1,7 +1,7 @@
 package com.ntt.model;
 
 public class Option {
-    private Integer id;
+    private Integer oid;
 
     private String opname;
 
@@ -13,12 +13,12 @@ public class Option {
 
     private Integer gThree;
 
-    public Integer getId() {
-        return id;
+    public Integer getOid() {
+        return oid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setOid(Integer oid) {
+        this.oid = oid;
     }
 
     public String getOpname() {

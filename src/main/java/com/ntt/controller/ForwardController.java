@@ -31,4 +31,10 @@ public class ForwardController {
         return "uploadExcel";
     }
 
+
+    @RequestMapping("/test")
+    public String test(){
+        return "test";
+    }
+
 }

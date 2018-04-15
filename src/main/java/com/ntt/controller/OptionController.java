@@ -63,6 +63,17 @@ public class OptionController {
         return result.toJSONString();
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/list")
+    public String  findOptionList( HttpServletResponse response){
+        response.setContentType("text/json");
+        response.setCharacterEncoding("utf-8");
+        List<Option> allOption = optionService.findAllOption();
+        JSONObject result = new JSONObject();
+        result.put("lists",allOption);
+        System.out.println(result.toJSONString());
+        return result.toJSONString();
+    }
 
     @ResponseBody
     @RequestMapping(value = "/all", produces = {"html/text;charset=UTF-8"})

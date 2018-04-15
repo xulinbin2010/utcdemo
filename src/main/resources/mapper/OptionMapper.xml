@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ntt.mapper.OptionMapper">
   <resultMap id="BaseResultMap" type="com.ntt.model.Option">
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="oid" jdbcType="INTEGER" property="oid" />
     <result column="opname" jdbcType="VARCHAR" property="opname" />
     <result column="g_zero" jdbcType="INTEGER" property="gZero" />
     <result column="g_one" jdbcType="INTEGER" property="gOne" />
@@ -10,29 +10,29 @@
     <result column="g_three" jdbcType="INTEGER" property="gThree" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, opname, g_zero, g_one, g_two, g_three
+    oid, opname, g_zero, g_one, g_two, g_three
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_option
-    where id = #{id,jdbcType=INTEGER}
+    where oid = #{oid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_option
-    where id = #{id,jdbcType=INTEGER}
+    where oid = #{oid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ntt.model.Option">
-    insert into t_option (id, opname, g_zero, 
+    insert into t_option (oid, opname, g_zero,
       g_one, g_two, g_three)
-    values (#{id,jdbcType=INTEGER}, #{opname,jdbcType=VARCHAR}, #{gZero,jdbcType=INTEGER}, 
+    values (#{oid,jdbcType=INTEGER}, #{opname,jdbcType=VARCHAR}, #{gZero,jdbcType=INTEGER},
       #{gOne,jdbcType=INTEGER}, #{gTwo,jdbcType=INTEGER}, #{gThree,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.ntt.model.Option">
     insert into t_option
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
+      <if test="oid != null">
+        oid,
       </if>
       <if test="opname != null">
         opname,
@@ -51,8 +51,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
+      <if test="oid != null">
+        #{oid,jdbcType=INTEGER},
       </if>
       <if test="opname != null">
         #{opname,jdbcType=VARCHAR},
@@ -90,7 +90,7 @@
         g_three = #{gThree,jdbcType=INTEGER},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where oid = #{oid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ntt.model.Option">
     update t_option
@@ -99,12 +99,12 @@
       g_one = #{gOne,jdbcType=INTEGER},
       g_two = #{gTwo,jdbcType=INTEGER},
       g_three = #{gThree,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+    where oid = #{oid,jdbcType=INTEGER}
   </update>
     <delete id="deleteByIds" parameterType="java.lang.String">
-        DELETE FROM t_option where id in
-        <foreach item="idItem" collection="array" open="(" separator="," close=")">
-            #{idItem}
+        DELETE FROM t_option where oid in
+        <foreach item="oidItem" collection="array" open="(" separator="," close=")">
+            #{oidItem}
         </foreach>
     </delete>
     <select id="getAllOptionList" resultMap="BaseResultMap">

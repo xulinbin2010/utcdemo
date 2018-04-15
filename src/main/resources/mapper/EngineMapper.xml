@@ -7,8 +7,10 @@
         <result column="engine_modle" jdbcType="VARCHAR" property="engineModle" />
         <result column="customer" jdbcType="VARCHAR" property="customer" />
         <result column="option_id" jdbcType="VARCHAR" property="optionId" />
-        <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+        <result column="start_date" jdbcType="VARCHAR" property="startDate" />
     </resultMap>
+
+
     <insert id="insert" parameterType="com.ntt.model.Engine" useGeneratedKeys="true" >
     insert into t_engine ( so_no, engine_modle,
       customer, option_id, start_date
@@ -36,7 +38,28 @@
             #{idItem}
         </foreach>
     </delete>
-    <select id="getAllEngineList" resultMap="BaseResultMap">
-      select * from t_engine
+    <!--<select id="getAllEngineList" resultMap="BaseResultMap">-->
+      <!--select * from t_engine-->
+    <!--</select>-->
+
+    <select id="getAllEngineList" resultMap="BaseResultMap2">
+    SELECT
+    e.*,o.oid ,o.opname
+    FROM
+    t_engine e,t_option o
+    WHERE e.option_id = o.oid
     </select>
+    <resultMap type="com.ntt.model.Engine" id="BaseResultMap2">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="so_no" jdbcType="VARCHAR" property="soNo" />
+        <result column="engine_modle" jdbcType="VARCHAR" property="engineModle" />
+        <result column="customer" jdbcType="VARCHAR" property="customer" />
+        <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+        <association property="option" column="option_id" javaType="com.ntt.model.Option">
+            <id property="oid" jdbcType="INTEGER" column="oid" />
+            <result property="opname" column="opname" />
+        </association>
+    </resultMap>
+
+
 </mapper>

@@ -14,7 +14,7 @@
     <script src="Bootstrap/bootstrap-datetimepicker.min.js"></script>
 
 </head>
-<body>
+<body style="width: 1000px">
 <section class="content-header">
     <h3>Option Plan Setting</h3>
     <hr>
@@ -27,8 +27,9 @@
                    class="btn btn-primary" onclick="resetAddModal()"/>
             <input type="button" value="modify option" id="editBtn" data-toggle="modal"
                    class="btn btn-primary" onclick="editOption()"/>
-            <input type="button" value="delete option" id="deleteBtn" data-toggle="modal"
-                   class="btn btn-primary" onclick="deleteOption()"/>
+            <!--todo  删除要做关联删除，暂时注释-->
+            <!--<input type="button" value="delete option" id="deleteBtn" data-toggle="modal"-->
+                   <!--class="btn btn-primary" onclick="deleteOption()"/>-->
         </div>
         <!-- bootstrapTable -->
     </form>
@@ -105,7 +106,7 @@
                     <div class="form-group" style="display:none">
                         <label for="editId" class="col-sm-3 control-label">ID</label>
                         <div class="col-sm-7">
-                            <input type="id" name="id"   class="form-control" id="editId" placeholder="" />
+                            <input type="text" name="oid"   class="form-control" id="editId" placeholder="" />
                         </div>
                         <label id="errorId" for="editId" class="col-sm-3 control-label"></label>
                     </div>
@@ -215,7 +216,7 @@
                 field : "box"
             },  {
                 title : "ID",
-                field : "id",
+                field : "oid",
                 visible: false
             }, {
                 title : "name",
@@ -287,7 +288,7 @@
             $("#tip").modal('show');
         }else{
             var row = rows[0];
-            $('#editId').val(row.id);
+            $('#editId').val(row.oid);
             $('#editopname').val(row.opname);
             $('#editgZero').val(row.gZero);
             $('#editgOne').val(row.gOne);
@@ -323,7 +324,7 @@
         var ids = [];
         var len = rows.length;
         for(var i=0;i<len;i++){
-            ids.push(rows[i].id);
+            ids.push(rows[i].oid);
         }
         if(rows.length<1){
             document.getElementById("tipContent").innerText="请至少选择一行数据";

@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="Bootstrap/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="Bootstrap/bootstrap-table.css">
     <link rel="stylesheet" href="Bootstrap/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="Bootstrap/bootstrap-select-1.12.4/css/bootstrap-select.css">
     <script src="Bootstrap/jquery-1.9.1.min.js"></script>
     <script src="Bootstrap/bootstrap/js/bootstrap.min.js"></script>
     <script src="Bootstrap/bootstrap-table.min.js"></script>
     <script src="Bootstrap/bootstrap-datetimepicker.min.js"></script>
+    <script src="Bootstrap/bootstrap-select-1.12.4/js/bootstrap-select.js"></script>
 
 </head>
-<body>
+<body style="width: 1000px">
 <section class="content-header">
     <h3>Engine Plan Setting</h3>
     <hr>
@@ -68,10 +70,30 @@
                         <label id="errorCustomer" for="inputCustomer" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label for="inputOptionId" class="col-sm-3 control-label">option_id</label>
+                        <label for="inputOptionId" class="col-sm-3 control-label">option</label>
+                        <!--<div class="col-sm-7">-->
+                            <!--<input type="text" name="optionId" class="col-sm-4 form-control" id="inputOptionId" placeholder=""/>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-7 input-group">-->
+                            <!--<input type="text" id ="inputOptionId" class="form-control">-->
+                            <!--<div class="input-group-btn">-->
+                                <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>-->
+                                <!--<ul class="dropdown-menu dropdown-menu-right">-->
+                                    <!--<li><a href="#">Action</a></li>-->
+                                    <!--<li><a href="#">Another action</a></li>-->
+                                    <!--<li><a href="#">Something else here</a></li>-->
+                                <!--</ul>-->
+                            <!--</div>&lt;!&ndash; /btn-group &ndash;&gt;-->
+                        <!--</div>&lt;!&ndash; /input-group &ndash;&gt;-->
+
                         <div class="col-sm-7">
-                            <input type="text" name="optionId" class="col-sm-4 form-control" id="inputOptionId" placeholder=""/>
+                            <select id = "inputOptionId" name="optionId" class="selectpicker">
+                                <option value="1" >aa</option>
+                                <option value="2" >ccc</option>
+                                <option value="3" >ddd</option>
+                            </select>
                         </div>
+
                         <label id="errorOption" for="inputOptionId" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
@@ -134,8 +156,15 @@
                     </div>
                     <div class="form-group" >
                         <label  for ="editOptionId" class="col-sm-3 control-label">optionId</label>
+                        <!--<div class="col-sm-7">-->
+                            <!--<input type="text" name="optionId" class="col-sm-4 form-control" id="editOptionId" placeholder="optionId" />-->
+                        <!--</div>-->
                         <div class="col-sm-7">
-                            <input type="text" name="optionId" class="col-sm-4 form-control" id="editOptionId" placeholder="optionId" />
+                            <select id = "editOptionId" name="optionId" class="selectpicker">
+                                <option value="1" >aa</option>
+                                <option value="2">ccc</option>
+                                <option value="3" >ddd</option>
+                            </select>
                         </div>
                         <label id="errorOptionId" class="col-sm-3 control-label"></label>
                     </div>
@@ -181,7 +210,29 @@
     $(function() {
         //初始加载
         initDataGrid();
+        initSelect();
     });
+
+    function initSelect() {
+
+        $.ajax({
+            url:"/option/list",
+            type:"post",
+            dataType:"json",
+            success:function(data){
+                var lists=data.lists;
+                debugger;
+                for(var i=0;i<lists.length;i++) {
+                    var opname= lists[i].opname;
+                    var oid= lists[i].oid;
+                }
+
+            },
+            error:function(){
+
+            }
+        });
+    }
 
     //时间控件设置
     $('.form_date').datetimepicker({
@@ -231,8 +282,8 @@
                 title : "customer",
                 field : "customer"
             }, {
-                title : "optionId",
-                field : "optionId"
+                title : "option",
+                field : "option.opname"
             }, {
                 title : "start_date",
                 field : "startDate",
