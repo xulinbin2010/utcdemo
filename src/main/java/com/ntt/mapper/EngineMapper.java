@@ -23,4 +23,6 @@ public interface EngineMapper {
     int deleteByIds(String[] ids);
 
     List<Engine> getAllEngineList();
+
+    List<Engine> getAllEngineAndOptionList();
 }

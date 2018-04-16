@@ -20,7 +20,7 @@ public class OptionController {
 
 
     @Autowired
-    OptionService optionService;
+    private OptionService optionService;
 
 
     @ResponseBody

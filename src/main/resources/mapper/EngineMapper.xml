@@ -61,5 +61,25 @@
         </association>
     </resultMap>
 
+    <select id="getAllEngineAndOptionList" resultMap="BaseResultMap3">
+    SELECT
+    e.id,e.so_no,e.start_date,o.g_zero,o.g_one,o.g_two,o.g_three
+    FROM
+    t_engine e,t_option o
+    WHERE e.option_id = o.oid
+    </select>
+    <resultMap type="com.ntt.model.Engine" id="BaseResultMap3">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="so_no" jdbcType="VARCHAR" property="soNo" />
+        <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+        <association property="option" column="option_id" javaType="com.ntt.model.Option">
+            <id property="oid" jdbcType="INTEGER" column="oid" />
+            <result property="gZero" column="g_zero" />
+            <result property="gOne" column="g_one" />
+            <result property="gTwo" column="g_two" />
+            <result property="gThree" column="g_three" />
+        </association>
+    </resultMap>
+
 
 </mapper>

@@ -17,4 +17,6 @@ public interface EngineService {
 
     public List<Engine> findAllEngine();
 
+    public List<Engine> findAllEngineAndOption();
+
 }

@@ -1,131 +1,55 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title></title>
-    <link rel="stylesheet" href="Bootstrap/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="Bootstrap/bootstrap/css/grid.css"> <!--main  专用-->
-    <script src="Bootstrap/jquery-1.9.1.min.js"></script>
-    <script src="Bootstrap/bootstrap/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" href="Bootstrap/bootstrap/css/bootstrap.css">-->
+    <!--<link rel="stylesheet" href="Bootstrap/bootstrap/css/grid.css"> &lt;!&ndash;main  专用&ndash;&gt;-->
+    <link th:href="@{Bootstrap/bootstrap/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{Bootstrap/bootstrap/css/grid.css}" rel="stylesheet" />
+    <!--<script src="Bootstrap/jquery-1.9.1.min.js"></script>-->
+    <script th:src="@{Bootstrap/jquery-1.9.1.min.js}"></script>
+    <!--<script src="Bootstrap/bootstrap/js/bootstrap.min.js"></script>-->
+    <script th:src="@{Bootstrap/bootstrap/js/bootstrap.min.js}"></script>
 </head>
 <body>
 <!--<section>-->
 <!--<h3>View engine maintenance status</h3>-->
 <!--</section>-->
 <!--<hr>-->
-
-<table>
+<table th:if="${not #lists.isEmpty(dateBarList)}">
     <tr>
         <td style="width: 140px;">
             <strong>Date Bar</strong>
         </td>
-        <td>
-            <div class="rownew">
-                <div class="mycol">April 14</div>
-                <div class="mycol">April 15</div>
-                <div class="mycol">April 16</div>
-                <div class="mycol">April 17</div>
-                <div class="mycol">April 18</div>
-                <div class="mycol">April 19</div>
-                <div class="mycol">April 20</div>
-                <div class="mycol">April 21</div>
-                <div class="mycol">April 22</div>
-                <div class="mycol">April 23</div>
-                <div class="mycol">April 24</div>
-                <div class="mycol">April 25</div>
-                <div class="mycol">April 26</div>
-                <div class="mycol">April 27</div>
-                <div class="mycol">April 28</div>
-                <div class="mycol">April 29</div>
-                <div class="mycol">April 30</div>
-                <div class="mycol">May 01</div>
-                <div class="mycol">May 02</div>
-                <div class="mycol">May 03</div>
-                <div class="mycol">May 04</div>
-                <div class="mycol">May 05</div>
-                <div class="mycol">May 06</div>
-                <div class="mycol">May 07</div>
-                <div class="mycol">May 08</div>
-                <div class="mycol">May 09</div>
-                <div class="mycol">May 10</div>
-                <div class="mycol">May 11</div>
-                <div class="mycol">May 12</div>
-                <div class="mycol">May 13</div>
-                <div class="mycol">May 14</div>
-                <div class="mycol">May 15</div>
-
+        <td th:each="dateOne:${dateBarList}">
+            <div class="rownew" >
+                <div class="mycol" th:text="${dateOne}"></div>
             </div>
         </td>
     </tr>
 </table>
 
 
-<table>
+<table th:if="${not #lists.isEmpty(engineList)}">
     <tr style="height: 10px">
     </tr>
-    <tr style="margin-top: 10px">
-        <td style="width: 140px;">
-            <strong>E3439-01</strong>
-        </td>
-        <td>
-            <div class="rownew " style="margin-left: 175px;">
-                <div class="mycol myplan" style="width: 140px; ">G0</div>
-                <div class="mycol myplan" style="width: 70px ;">G1</div>
-                <div class="mycol myplan" style="width: 140px;">G2</div>
-                <div class="mycol myplan" style="width: 175px;">G3</div>
-            </div>
-        </td>
-    </tr>
-    <tr style="height: 10px">
-    </tr>
-    <tr style="margin-top: 10px">
 
-        <td style="width: 140px;">
-            <strong>E2ksjdfk2-01</strong>
+    <tr style="margin-top: 10px" th:each="engineDto:${engineList}">
+        <td style="width: 140px;" th:text="${engineDto.soNo}">
         </td>
         <td>
-            <div class="rownew " style="margin-left: 70px;">
-                <div class="mycol myplan" style="width: 175px; ">G0</div>
-                <div class="mycol myplan" style="width: 70px ;">G1</div>
-                <div class="mycol myplan" style="width: 140px;">G2</div>
-                <div class="mycol myplan" style="width: 70px;">G3</div>
+            <div class="rownew" th:style="${engineDto.marginLeft}" >
+                <div class="mycol myplan" th:style="${engineDto.g0width}" >G0</div>
+                <div class="mycol myplan" th:style="${engineDto.g1width}" >G1</div>
+                <div class="mycol myplan" th:style="${engineDto.g2width}" >G2</div>
+                <div class="mycol myplan" th:style="${engineDto.g3width}" >G3</div>
             </div>
         </td>
     </tr>
-    <tr style="height: 10px">
-    </tr>
-    <tr style="margin-top: 10px">
 
-        <td style="width: 140px;">
-            <strong>E2sdfs-01</strong>
-        </td>
-        <td>
-            <div class="rownew  " style="margin-left: 140px;">
-                <div class="mycol myplan" style="width: 140px;">G0</div>
-                <div class="mycol myplan" style="width: 350px ;">G1</div>
-                <div class="mycol myplan" style="width: 140px;">G2</div>
-                <div class="mycol myplan" style="width: 140px;">G3</div>
-            </div>
-        </td>
-    </tr>
-    <tr style="height: 10px">
-    </tr>
-    <tr style="margin-top: 10px">
-
-        <td style="width: 140px;">
-            <strong>E2ewrwer-01</strong>
-        </td>
-        <td>
-            <div class="rownew" style="margin-left: 35px;">
-                <div class="mycol myplan" style="width: 140px; ">G0</div>
-                <div class="mycol myplan" style="width: 350px ;">G1</div>
-                <div class="mycol myplan" style="width: 560px;">G2</div>
-                <!--<div class="mycol myplan" style="width: 350px;">G3</div>-->
-            </div>
-        </td>
-    </tr>
 </table>
 
 

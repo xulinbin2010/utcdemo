@@ -32,10 +32,12 @@ public class EngineServiceImpl implements EngineService {
         return updateVar;
     }
 
+    @Override
     public int deleteEngine(int id){
         return engineMapper.deleteByPrimaryKey(id);
     }
 
+    @Override
     public int deleteEngines(String[] ids){
         return engineMapper.deleteByIds(ids);
     }
@@ -44,5 +46,10 @@ public class EngineServiceImpl implements EngineService {
     public List<Engine> findAllEngine() {
         return engineMapper.getAllEngineList();
 
+    }
+
+    @Override
+    public List<Engine> findAllEngineAndOption(){
+        return engineMapper.getAllEngineAndOptionList();
     }
 }

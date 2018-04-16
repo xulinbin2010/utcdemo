@@ -21,10 +21,7 @@ public class ForwardController {
         return "optionSetting";
     }
 
-    @RequestMapping("/main")
-    public String main(){
-        return "main";
-    }
+
 
     @RequestMapping("/uploadExcel")
     public String uploadExcel(){
