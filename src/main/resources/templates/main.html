@@ -5,13 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title></title>
-    <!--<link rel="stylesheet" href="Bootstrap/bootstrap/css/bootstrap.css">-->
-    <!--<link rel="stylesheet" href="Bootstrap/bootstrap/css/grid.css"> &lt;!&ndash;main  专用&ndash;&gt;-->
     <link th:href="@{Bootstrap/bootstrap/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{Bootstrap/bootstrap/css/grid.css}" rel="stylesheet" />
-    <!--<script src="Bootstrap/jquery-1.9.1.min.js"></script>-->
     <script th:src="@{Bootstrap/jquery-1.9.1.min.js}"></script>
-    <!--<script src="Bootstrap/bootstrap/js/bootstrap.min.js"></script>-->
     <script th:src="@{Bootstrap/bootstrap/js/bootstrap.min.js}"></script>
 </head>
 <body>
@@ -32,15 +28,36 @@
     </tr>
 </table>
 
+<!--<table >-->
+    <!--<tr style="height: 10px">-->
+    <!--</tr>-->
+    <!--<tr style="margin-top: 10px" >-->
+        <!--<td style="width: 140px;" >-->
+            <!--E1234-01-->
+        <!--</td>-->
+        <!--<td>-->
+            <!--<div class="rownew" style="margin-left:0px" >-->
+                <!--<div class="mycol myplan" style="display:none;" >G0</div>-->
+                <!--<div class="mycol myplan" style="display:none;" >G1</div>-->
+                <!--<div class="mycol myplan" style="display:none;" >G2</div>-->
+                <!--<div class="mycol myplan" style="width:560px;" >G3</div>-->
+            <!--</div>-->
+        <!--</td>-->
+    <!--</tr>-->
 
-<table th:if="${not #lists.isEmpty(engineList)}">
+<!--</table>-->
+
+
+
+
+<table th:if="${not #lists.isEmpty(engineList)}"  th:each="engineDto:${engineList}">
     <tr style="height: 10px">
     </tr>
 
-    <tr style="margin-top: 10px" th:each="engineDto:${engineList}">
-        <td style="width: 140px;" th:text="${engineDto.soNo}">
+    <tr style="margin-top: 10px; border: 1px solid #ddd;">
+        <td style="width: 140px; height: 55px" th:text="${engineDto.soNo}">
         </td>
-        <td>
+        <td style="width:1120px">
             <div class="rownew" th:style="${engineDto.marginLeft}" >
                 <div class="mycol myplan" th:style="${engineDto.g0width}" >G0</div>
                 <div class="mycol myplan" th:style="${engineDto.g1width}" >G1</div>
