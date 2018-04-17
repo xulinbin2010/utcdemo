@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head >
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label for="inputNO" class="col-sm-3 control-label">SO_NO</label>
                         <div class="col-sm-7">
-                            <input type="text" name="soNo" class="col-sm-4 form-control" id="inputNo" placeholder="SO_NO"/>
+                            <input type="text" name="soNo" class="col-sm-4 form-control" id="inputNo" placeholder=""/>
                         </div>
                         <label id="errorNo" for="inputNo" class="col-sm-3 control-label"></label>
                     </div>
@@ -58,39 +58,21 @@
                     <div class="form-group">
                         <label for="inputEngine_modle" class="col-sm-3 control-label">engine_modle</label>
                         <div class="col-sm-7">
-                            <input type="text" name="engineModle" class="col-sm-4 form-control" id="inputEngine_modle" placeholder="engine_modle"/>
+                            <input type="text" name="engineModle" class="col-sm-4 form-control" id="inputEngine_modle" placeholder=""/>
                         </div>
                         <label id="errorEngine_modle" for="inputEngine_modle" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
                         <label for="inputCustomer" class="col-sm-3 control-label">customer</label>
                         <div class="col-sm-7">
-                            <input type="text" name="customer" class="col-sm-4 form-control" id="inputCustomer" placeholder="customer"/>
+                            <input type="text" name="customer" class="col-sm-4 form-control" id="inputCustomer" placeholder=""/>
                         </div>
                         <label id="errorCustomer" for="inputCustomer" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
                         <label for="inputOptionId" class="col-sm-3 control-label">option</label>
-                        <!--<div class="col-sm-7">-->
-                            <!--<input type="text" name="optionId" class="col-sm-4 form-control" id="inputOptionId" placeholder=""/>-->
-                        <!--</div>-->
-                        <!--<div class="col-sm-7 input-group">-->
-                            <!--<input type="text" id ="inputOptionId" class="form-control">-->
-                            <!--<div class="input-group-btn">-->
-                                <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>-->
-                                <!--<ul class="dropdown-menu dropdown-menu-right">-->
-                                    <!--<li><a href="#">Action</a></li>-->
-                                    <!--<li><a href="#">Another action</a></li>-->
-                                    <!--<li><a href="#">Something else here</a></li>-->
-                                <!--</ul>-->
-                            <!--</div>&lt;!&ndash; /btn-group &ndash;&gt;-->
-                        <!--</div>&lt;!&ndash; /input-group &ndash;&gt;-->
-
                         <div class="col-sm-7">
-                            <select id = "inputOptionId" name="optionId" class="selectpicker">
-                                <option value="1" >aa</option>
-                                <option value="2" >ccc</option>
-                                <option value="3" >ddd</option>
+                            <select id = "inputOptionId"  name="optionId" class="selectpicker">
                             </select>
                         </div>
 
@@ -128,14 +110,14 @@
                     <div class="form-group" style="display:none">
                         <label for="editId" class="col-sm-3 control-label">ID</label>
                         <div class="col-sm-7">
-                            <input type="id" name="id"   class="form-control" id="editId" placeholder="ID" />
+                            <input type="id" name="id"   class="form-control" id="editId" placeholder="" />
                         </div>
                         <label id="errorId" for="editId" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
                         <label for="editSoNo" class="col-sm-3 control-label">soNo</label>
                         <div class="col-sm-7">
-                            <input type="text" name="soNo" class="form-control" id="editSoNo" placeholder="soNo"/>
+                            <input type="text" name="soNo" class="form-control" id="editSoNo" placeholder=""/>
                         </div>
                         <label id="errorSoNo" for="editSoNo" class="col-sm-3 control-label"></label>
                     </div>
@@ -143,27 +125,21 @@
                     <div class="form-group">
                         <label for="editEngineModle" class="col-sm-3 control-label">engineModle</label>
                         <div class="col-sm-7">
-                            <input type="text" name="engineModle" class="col-sm-4 form-control" id="editEngineModle" placeholder="engineModle"/>
+                            <input type="text" name="engineModle" class="col-sm-4 form-control" id="editEngineModle" placeholder=""/>
                         </div>
                         <label id="errorName" for="editEngineModle" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
                         <label  for="editCustomer" class="col-sm-3 control-label">customer</label>
                         <div class="col-sm-7">
-                            <input type="text" name="customer" class="col-sm-4 form-control" id="editCustomer" placeholder="customer"/>
+                            <input type="text" name="customer" class="col-sm-4 form-control" id="editCustomer" placeholder=""/>
                         </div>
                         <label id="errorCustomer_ed"  for="editCustomer" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group" >
-                        <label  for ="editOptionId" class="col-sm-3 control-label">optionId</label>
-                        <!--<div class="col-sm-7">-->
-                            <!--<input type="text" name="optionId" class="col-sm-4 form-control" id="editOptionId" placeholder="optionId" />-->
-                        <!--</div>-->
+                        <label  for ="editOptionId" class="col-sm-3 control-label">option</label>
                         <div class="col-sm-7">
                             <select id = "editOptionId" name="optionId" class="selectpicker">
-                                <option value="1" >aa</option>
-                                <option value="2">ccc</option>
-                                <option value="3" >ddd</option>
                             </select>
                         </div>
                         <label id="errorOptionId" class="col-sm-3 control-label"></label>
@@ -192,10 +168,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>提示</h3>
+                <h3>Tips</h3>
             </div>
             <div class="modal-body" align="center">
-                <h4 id="tipContent">新增成功</h4>
+                <h4 id="tipContent">Add Success</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
@@ -214,22 +190,33 @@
     });
 
     function initSelect() {
+        $(".selectpicker").selectpicker({
+            noneSelectedText : 'please select'
+        });
+        //
+        // $(window).on('load', function() {
+        //     // $(".selectpicker").selectpicker('val', '');
+        //     $(".selectpicker").selectpicker('refresh');
+        // });
 
+        //下拉数据加载
         $.ajax({
-            url:"/option/list",
-            type:"post",
-            dataType:"json",
-            success:function(data){
-                var lists=data.lists;
-                debugger;
-                for(var i=0;i<lists.length;i++) {
-                    var opname= lists[i].opname;
-                    var oid= lists[i].oid;
+            type : 'get',
+            url : '/option/list',
+            dataType : 'json',
+            success : function(datas) {//返回list数据并循环获取
+
+                var lists= datas.lists;
+                var select = $("#inputOptionId");
+                var select2= $("#editOptionId");
+                for (var i = 0; i < lists.length; i++) {
+                    select.append("<option value='"+lists[i].oid+"'>"
+                        + lists[i].opname + "</option>");
+                    select2.append("<option value='"+lists[i].oid+"'>"
+                        + lists[i].opname + "</option>");
                 }
-
-            },
-            error:function(){
-
+                select.selectpicker('val', '');
+                select.selectpicker('refresh');
             }
         });
     }
@@ -281,6 +268,10 @@
             }, {
                 title : "customer",
                 field : "customer"
+            },  {
+                title : "option_id",
+                field : "optionId",
+                visible: false
             }, {
                 title : "option",
                 field : "option.opname"
@@ -307,6 +298,8 @@
     }
     //点击取消后清空表单中已写信息
     function resetAddModal(){
+        $(".selectpicker").selectpicker('val', '');
+        $('.selectpicker').selectpicker('refresh');
         document.getElementById("addEngineForm").reset();
     }
     //新增用户
@@ -321,14 +314,14 @@
             dataType:"json",
             success:function(data){
                 if(data.state=="success"){
-                    document.getElementById("tipContent").innerText="新增成功";
+                    document.getElementById("tipContent").innerText="Add Success";
                     $("#tip").modal('show');
                     $("#addModal").modal('hide');
                     $("#dataGrid").bootstrapTable('refresh');
                 }
             },
             error:function(){
-                document.getElementById("al").innerText="新增失败";
+                document.getElementById("al").innerText="Add Fail";
                 $("#tip").modal('show');
             }
         });
@@ -338,7 +331,7 @@
         //获取选中行的数据
         var rows = $("#dataGrid").bootstrapTable('getSelections');
         if(rows.length!=1){
-            document.getElementById("tipContent").innerText="请选择一行数据";
+            document.getElementById("tipContent").innerText="please select one record  .";
             $("#tip").modal('show');
         }else{
             var row = rows[0];
@@ -346,7 +339,8 @@
             $('#editSoNo').val(row.soNo);
             $('#editEngineModle').val(row.engineModle);
             $('#editCustomer').val(row.customer);
-            $('#editOptionId').val(row.optionId);
+            $('.selectpicker').selectpicker('val', row.option.oid);
+            $('.selectpicker').selectpicker('refresh');
             $('#editStartDate').val(row.startDate);
             $("#editModal").modal("show");
         }
@@ -362,7 +356,7 @@
             success:function(data){
                 if(data.state=="success"){
                     $("#editModal").modal("hide");
-                    document.getElementById("tipContent").innerText="修改成功";
+                    document.getElementById("tipContent").innerText="Update success.";
                     $("#dataGrid").bootstrapTable('refresh');
                     $("#tip").modal('show');
                 }
@@ -382,7 +376,7 @@
         }
         debugger;
         if(rows.length<1){
-            document.getElementById("tipContent").innerText="请至少选择一行数据";
+            document.getElementById("tipContent").innerText="Please select one record  at least.";
             $("#tip").modal('show');
         } else {
             $.ajax({
@@ -394,12 +388,12 @@
                     "ids": ids
                 },
                 success: function (data) {
-                    document.getElementById("tipContent").innerText = "删除成功";
+                    document.getElementById("tipContent").innerText = "delete success";
                     $("#tip").modal('show');
                     $("#dataGrid").bootstrapTable("refresh");
                 },
                 error: function () {
-                    document.getElementById("tipContent").innerText = "删除失败";
+                    document.getElementById("tipContent").innerText = "delete fail";
                     $("#tip").modal('show');
                 }
             });
