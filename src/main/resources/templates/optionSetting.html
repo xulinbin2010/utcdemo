@@ -49,7 +49,7 @@
                     <div class="form-group">
                         <label for="inputOpname" class="col-sm-3 control-label">option_name</label>
                         <div class="col-sm-7">
-                            <input type="text" name="Opname" class="col-sm-4 form-control" id="inputOpname" placeholder="name"/>
+                            <input type="text" name="Opname" class="col-sm-4 form-control" id="inputOpname" placeholder=""/>
                         </div>
                         <label id="errorNo" for="inputOpname" class="col-sm-3 control-label"></label>
                     </div>
@@ -57,14 +57,14 @@
                     <div class="form-group">
                         <label for="inputgZero" class="col-sm-3 control-label">g0_days</label>
                         <div class="col-sm-7">
-                            <input type="text" name="gZero" class="col-sm-4 form-control" id="inputgZero" placeholder="gZero"/>
+                            <input type="text" name="gZero" class="col-sm-4 form-control" id="inputgZero" placeholder=""/>
                         </div>
                         <label id="errorOption_modle" for="inputgZero" class="col-sm-3 control-label"></label>
                     </div>
                     <div class="form-group">
                         <label for="inputgOne" class="col-sm-3 control-label">g1_days</label>
                         <div class="col-sm-7">
-                            <input type="text" name="gOne" class="col-sm-4 form-control" id="inputgOne" placeholder="gOne"/>
+                            <input type="text" name="gOne" class="col-sm-4 form-control" id="inputgOne" placeholder=""/>
                         </div>
                         <label id="errorCustomer" for="inputgOne" class="col-sm-3 control-label"></label>
                     </div>
@@ -161,10 +161,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>提示</h3>
+                <h3>Tips</h3>
             </div>
             <div class="modal-body" align="center">
-                <h4 id="tipContent">新增成功</h4>
+                <h4 id="tipContent">Add Success</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
@@ -267,14 +267,14 @@
             dataType:"json",
             success:function(data){
                 if(data.state=="success"){
-                    document.getElementById("tipContent").innerText="新增成功";
+                    document.getElementById("tipContent").innerText="Add success.";
                     $("#tip").modal('show');
                     $("#addModal").modal('hide');
                     $("#dataGrid").bootstrapTable('refresh');
                 }
             },
             error:function(){
-                document.getElementById("al").innerText="新增失败";
+                document.getElementById("al").innerText="Add fail.";
                 $("#tip").modal('show');
             }
         });
@@ -284,7 +284,7 @@
         //获取选中行的数据
         var rows = $("#dataGrid").bootstrapTable('getSelections');
         if(rows.length!=1){
-            document.getElementById("tipContent").innerText="请选择一行数据";
+            document.getElementById("tipContent").innerText="please select one record .";
             $("#tip").modal('show');
         }else{
             var row = rows[0];
@@ -308,13 +308,14 @@
             success:function(data){
                 if(data.state=="success"){
                     $("#editModal").modal("hide");
-                    document.getElementById("tipContent").innerText="修改成功";
+                    document.getElementById("tipContent").innerText="Modify success.";
                     $("#dataGrid").bootstrapTable('refresh');
                     $("#tip").modal('show');
                 }
             },
             error:function(data){
-                alert("wrong");
+                document.getElementById("tipContent").innerText="Modify fail";
+                $("#tip").modal('show');
             }
         });
     }
@@ -327,7 +328,7 @@
             ids.push(rows[i].oid);
         }
         if(rows.length<1){
-            document.getElementById("tipContent").innerText="请至少选择一行数据";
+            document.getElementById("tipContent").innerText="Please select one record  at least.";
             $("#tip").modal('show');
         }else{
             $.ajax({
@@ -339,12 +340,12 @@
                     "ids":ids
                 },
                 success:function(data){
-                    document.getElementById("tipContent").innerText="删除成功";
+                    document.getElementById("tipContent").innerText="delete success";
                     $("#tip").modal('show');
                     $("#dataGrid").bootstrapTable("refresh");
                 },
                 error:function(){
-                    document.getElementById("tipContent").innerText="删除失败";
+                    document.getElementById("tipContent").innerText="delete fail";
                     $("#tip").modal('show');
                 }
             });
