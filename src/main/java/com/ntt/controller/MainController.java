@@ -28,10 +28,11 @@ public class MainController {
     @RequestMapping("/main")
     public String mainPage(Model model) {
         Date date = new Date();
+        String sDate = DateUtils.convertCommon(date);
         List<String> dateBarList = dateBarList(date, ALLDAYS);  //取得日期条
         List<EngineDto> engineList = null;  //取得plan engine list
         try {
-            engineList = getEngineMain(date);
+            engineList = getEngineMain(DateUtils.format(sDate));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -94,7 +95,7 @@ public class MainController {
         int g2days = engine.getOption().getgTwo();
         int g3days = engine.getOption().getgThree();
 
-
+        dto.setOption(engine.getOption());
         dto.setSoNo(soNo);
 
         int marginDays = DateUtils.daysBetween(beginDate, DateUtils.format(myStartDate));  //取得日期差值
@@ -159,31 +160,12 @@ public class MainController {
         }
         cursor += g2days;
 
-        dto.setMarginLeft("margin-left: " + (marginWidth) * 35 + "px;");
+        dto.setMarginLeft(marginWidth*UNIT);
+        dto.setG0width(g0Width*UNIT);
+        dto.setG1width(g1Width*UNIT);
+        dto.setG2width(g2Width*UNIT);
+        dto.setG3width(g3Width*UNIT);
 
-        if (g0Width > 0) {
-            dto.setG0width("width:" + g0Width * 35 + "px;");
-        } else {
-            dto.setG0width("display:none;");
-        }
-
-        if (g1Width > 0) {
-            dto.setG1width("width:" + g1Width * 35 + "px;");
-        } else {
-            dto.setG1width("display:none;");
-        }
-
-        if (g2Width > 0) {
-            dto.setG2width("width:" + g2Width * 35 + "px;");
-        } else {
-            dto.setG2width("display:none;");
-        }
-
-        if (g3Width > 0) {
-            dto.setG3width("width:" + g3Width * 35 + "px;");
-        } else {
-            dto.setG3width("display:none;");
-        }
         return dto;
     }
 
@@ -193,12 +175,12 @@ public class MainController {
         Date date = new Date();
         Engine e = new Engine();
         Option option = new Option();
-        e.setStartDate("2018-08-14");
-        option.setgZero(13);
+        e.setStartDate("2018-04-19");
+        option.setgZero(5);
         option.setgOne(3);
-        option.setgTwo(8);
-        option.setgThree(19);
-        e.setSoNo("8888");
+        option.setgTwo(7);
+        option.setgThree(6);
+        e.setSoNo("7171717");
         e.setOption(option);
         try {
             EngineDto dtoBy = getDtoBy(e, date);

@@ -28,27 +28,6 @@
     </tr>
 </table>
 
-<!--<table >-->
-    <!--<tr style="height: 10px">-->
-    <!--</tr>-->
-    <!--<tr style="margin-top: 10px" >-->
-        <!--<td style="width: 140px;" >-->
-            <!--E1234-01-->
-        <!--</td>-->
-        <!--<td>-->
-            <!--<div class="rownew" style="margin-left:0px" >-->
-                <!--<div class="mycol myplan" style="display:none;" >G0</div>-->
-                <!--<div class="mycol myplan" style="display:none;" >G1</div>-->
-                <!--<div class="mycol myplan" style="display:none;" >G2</div>-->
-                <!--<div class="mycol myplan" style="width:560px;" >G3</div>-->
-            <!--</div>-->
-        <!--</td>-->
-    <!--</tr>-->
-
-<!--</table>-->
-
-
-
 
 <table th:if="${not #lists.isEmpty(engineList)}"  th:each="engineDto:${engineList}">
     <tr style="height: 10px">
@@ -58,11 +37,12 @@
         <td style="width: 140px; height: 55px" th:text="${engineDto.soNo}">
         </td>
         <td style="width:1120px">
-            <div class="rownew" th:style="${engineDto.marginLeft}" >
-                <div class="mycol myplan" th:style="${engineDto.g0width}" >G0</div>
-                <div class="mycol myplan" th:style="${engineDto.g1width}" >G1</div>
-                <div class="mycol myplan" th:style="${engineDto.g2width}" >G2</div>
-                <div class="mycol myplan" th:style="${engineDto.g3width}" >G3</div>
+            <div class="rownew" th:style="${'margin-left:'+engineDto.marginLeft+'px;'}" >
+            <div class="mycol myplan" th:if="${engineDto.g0width &gt; 0}" th:style="${'width:'+engineDto.g0width+'px;'}" >G0</div>
+            <div class="mycol myplan" th:if="${engineDto.g1width &gt; 0}" th:style="${'width:'+engineDto.g1width+'px;'}" >G1</div>
+            <div class="mycol myplan" th:if="${engineDto.g2width &gt; 0}" th:style="${'width:'+engineDto.g2width+'px;'}" >G2</div>
+            <div class="mycol myplan" th:if="${engineDto.g3width &gt; 0}" th:style="${'width:'+engineDto.g3width+'px;'}" >G3</div>
+                <!--<div class="mycol myplan" th:style="${engineDto.g1width}" th:text="${'G1DAYS&#45;&#45;'+engineDto.option.gOne}">G1</div>-->
             </div>
         </td>
     </tr>

@@ -18,6 +18,12 @@ public class DateUtils {
         return format;
     }
 
+    public static String convertCommon(Date day) {
+        SimpleDateFormat sdf = new SimpleDateFormat(DATEFORMAT);
+        String format = sdf.format(day);
+        return format;
+    }
+
     public static Date format(String day) {
         SimpleDateFormat sdf = new SimpleDateFormat(DATEFORMAT);
         Date format = null;
@@ -29,7 +35,15 @@ public class DateUtils {
         return format;
     }
 
-    public static int daysBetween(Date date1, Date date2)throws ParseException {
+//
+
+    /**
+     * 计算2个日期的差值天数 date2-date1, 注意要删除掉时分秒
+     * @param date1
+     * @param date2
+     * @return
+     */
+    public static int daysBetween(Date date1, Date date2) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date1);
         long time1 = cal.getTimeInMillis();
@@ -80,9 +94,12 @@ public class DateUtils {
 //        } catch (ParseException e) {
 //            e.printStackTrace();
 //        }
-            Date date = new Date();
+        Date date = new Date();
         System.out.println(convertDay(date));
-
+        String dt1="2018-04-17";
+        String dt2="2018-04-19";
+        int i = daysBetween(format(dt2), format(dt1));
+        System.out.println("i = " + i);
 
 
     }
