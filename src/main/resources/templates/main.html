@@ -11,10 +11,7 @@
     <script th:src="@{Bootstrap/bootstrap/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<!--<section>-->
-<!--<h3>View engine maintenance status</h3>-->
-<!--</section>-->
-<!--<hr>-->
+
 <table th:if="${not #lists.isEmpty(dateBarList)}">
     <tr>
         <td style="width: 140px;">
@@ -29,25 +26,78 @@
 </table>
 
 
-<table th:if="${not #lists.isEmpty(engineList)}"  th:each="engineDto:${engineList}">
-    <tr style="height: 10px">
-    </tr>
 
-    <tr style="margin-top: 10px; border: 1px solid #ddd;">
-        <td style="width: 140px; height: 55px" th:text="${engineDto.soNo}">
+
+<table th:if="${not #lists.isEmpty(engineList)}"  th:each="engineDto:${engineList}" style=" margin-top: 10px; border: 1px solid #ddd;">
+    <tr >
+        <td style="width: 140px; height: 55px" th:text="${engineDto.soNo+' Plan:'}">
         </td>
         <td style="width:1120px">
             <div class="rownew" th:style="${'margin-left:'+engineDto.marginLeft+'px;'}" >
-            <div class="mycol myplan" th:if="${engineDto.g0width &gt; 0}" th:style="${'width:'+engineDto.g0width+'px;'}" >G0</div>
-            <div class="mycol myplan" th:if="${engineDto.g1width &gt; 0}" th:style="${'width:'+engineDto.g1width+'px;'}" >G1</div>
-            <div class="mycol myplan" th:if="${engineDto.g2width &gt; 0}" th:style="${'width:'+engineDto.g2width+'px;'}" >G2</div>
-            <div class="mycol myplan" th:if="${engineDto.g3width &gt; 0}" th:style="${'width:'+engineDto.g3width+'px;'}" >G3</div>
+            <div class="mycol myplan" th:if="${engineDto.g0 &gt; 0}" th:style="${'width:'+engineDto.g0+'px;'}" >G0</div>
+            <div class="mycol myplan" th:if="${engineDto.g1 &gt; 0}" th:style="${'width:'+engineDto.g1+'px;'}" >G1</div>
+            <div class="mycol myplan" th:if="${engineDto.g2 &gt; 0}" th:style="${'width:'+engineDto.g2+'px;'}" >G2</div>
+            <div class="mycol myplan" th:if="${engineDto.g3 &gt; 0}" th:style="${'width:'+engineDto.g3+'px;'}" >G3</div>
                 <!--<div class="mycol myplan" th:style="${engineDto.g1width}" th:text="${'G1DAYS&#45;&#45;'+engineDto.option.gOne}">G1</div>-->
             </div>
         </td>
     </tr>
 
+    <tr >
+        <td style="width: 140px; height: 55px" th:text="${engineDto.soNo+' Actual:'}">
+        </td>
+        <td style="width:1120px">
+            <!--<div class="rownew" th:style="${'margin-left:'+engineDto.marginLeftAC+'px;'}">-->
+                <!--<div>-->
+                    <!--<div class="mycol preplan"  th:if="${engineDto.g0before &gt; 0}" th:style="${'width:'+engineDto.g0before+'px;'}">G0</div>-->
+                    <!--<div class="mycol myplan" th:if="${engineDto.g0normal &gt; 0}" th:style="${'width:'+engineDto.g0normal+'px;'}">G0</div>-->
+                    <!--<div class="mycol afterplan" th:if="${engineDto.g0normal &gt; 0}" th:style="${'width:'+engineDto.g0normal+'px;'}">G0</div>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<div class="mycol preplan"  th:if="${engineDto.g1before &gt; 0}" th:style="${'width:'+engineDto.g1before+'px;'}">G1</div>-->
+                    <!--<div class="mycol myplan" th:if="${engineDto.g1normal &gt; 0}" th:style="${'width:'+engineDto.g1normal+'px;'}">G1</div>-->
+                    <!--<div class="mycol afterplan" th:if="${engineDto.g1normal &gt; 0}" th:style="${'width:'+engineDto.g1normal+'px;'}">G1</div>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<div class="mycol preplan"  th:if="${engineDto.g2before &gt; 0}" th:style="${'width:'+engineDto.g2before+'px;'}">G0</div>-->
+                    <!--<div class="mycol myplan" th:if="${engineDto.g2normal &gt; 0}" th:style="${'width:'+engineDto.g2normal+'px;'}">G0</div>-->
+                    <!--<div class="mycol afterplan" th:if="${engineDto.g2normal &gt; 0}" th:style="${'width:'+engineDto.g2normal+'px;'}">G0</div>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<div class="mycol preplan"  th:if="${engineDto.g3before &gt; 0}" th:style="${'width:'+engineDto.g3before+'px;'}">G0</div>-->
+                    <!--<div class="mycol myplan" th:if="${engineDto.g3normal &gt; 0}" th:style="${'width:'+engineDto.g3normal+'px;'}">G0</div>-->
+                    <!--<div class="mycol afterplan" th:if="${engineDto.g3normal &gt; 0}" th:style="${'width:'+engineDto.g3normal+'px;'}">G0</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <div class="rownew" style="margin-left: 35px;">
+                <div>
+                    <div class="mycol preplan"   style="width:35px;">G0</div>
+                    <div class="mycol myplan"   style="width:140px;">G0</div>
+
+                </div>
+
+                <div>
+                    <div class="mycol preplan"   style="width:75px;">G1</div>
+                    <div class="mycol myplan"   style="width:140px;">G1</div>
+                </div>
+                <div>
+                    <div class="mycol preplan"   style="width:140px;">G2</div>
+                    <div class="mycol myplan"   style="width:140px;">G2</div>
+                    <div class="mycol afterplan"   style="width:140px;">G2</div>
+                </div>
+                <div>
+                    <div class="mycol preplan"   style="width:70px;">G3</div>
+                    <div class="mycol myplan"   style="width:35px;">G2</div>
+                    <div class="mycol afterplan"   style="width:140px;">G2</div>
+
+                </div>
+            </div>
+        </td>
+    </tr>
+
 </table>
+
 
 
 </body>

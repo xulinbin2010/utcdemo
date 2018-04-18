@@ -8,9 +8,10 @@
     <result column="g_one" jdbcType="INTEGER" property="gOne" />
     <result column="g_two" jdbcType="INTEGER" property="gTwo" />
     <result column="g_three" jdbcType="INTEGER" property="gThree" />
+    <result column="o_start_date" jdbcType="VARCHAR" property="oStartDate" />
   </resultMap>
   <sql id="Base_Column_List">
-    oid, opname, g_zero, g_one, g_two, g_three
+    oid, opname, g_zero, g_one, g_two, g_three ,o_start_date
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -24,9 +25,9 @@
   </delete>
   <insert id="insert" parameterType="com.ntt.model.Option">
     insert into t_option (oid, opname, g_zero,
-      g_one, g_two, g_three)
+      g_one, g_two, g_three,o_start_date)
     values (#{oid,jdbcType=INTEGER}, #{opname,jdbcType=VARCHAR}, #{gZero,jdbcType=INTEGER},
-      #{gOne,jdbcType=INTEGER}, #{gTwo,jdbcType=INTEGER}, #{gThree,jdbcType=INTEGER})
+      #{gOne,jdbcType=INTEGER}, #{gTwo,jdbcType=INTEGER}, #{gThree,jdbcType=INTEGER}, #{oStartDate,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ntt.model.Option">
     insert into t_option
@@ -98,7 +99,8 @@
       g_zero = #{gZero,jdbcType=INTEGER},
       g_one = #{gOne,jdbcType=INTEGER},
       g_two = #{gTwo,jdbcType=INTEGER},
-      g_three = #{gThree,jdbcType=INTEGER}
+      g_three = #{gThree,jdbcType=INTEGER},
+      o_start_date = #{oStartDate,jdbcType=VARCHAR}
     where oid = #{oid,jdbcType=INTEGER}
   </update>
     <delete id="deleteByIds" parameterType="java.lang.String">

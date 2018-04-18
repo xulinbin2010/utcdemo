@@ -63,7 +63,7 @@
 
     <select id="getAllEngineAndOptionList" resultMap="BaseResultMap3">
     SELECT
-    e.id,e.so_no,e.start_date,o.g_zero,o.g_one,o.g_two,o.g_three
+    e.id,e.so_no,e.start_date,e.g0days,e.g1days,e.g2days,e.g3days,o.g_zero,o.g_one,o.g_two,o.g_three,o.o_start_date
     FROM
     t_engine e,t_option o
     WHERE e.option_id = o.oid
@@ -72,12 +72,17 @@
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="so_no" jdbcType="VARCHAR" property="soNo" />
         <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+        <result property="g0days" column="g0days" />
+        <result property="g1days" column="g1days" />
+        <result property="g2days" column="g2days" />
+        <result property="g3days" column="g3days" />
         <association property="option" column="option_id" javaType="com.ntt.model.Option">
             <id property="oid" jdbcType="INTEGER" column="oid" />
             <result property="gZero" column="g_zero" />
             <result property="gOne" column="g_one" />
             <result property="gTwo" column="g_two" />
             <result property="gThree" column="g_three" />
+            <result property="oStartDate" column="o_start_date" />
         </association>
     </resultMap>
 

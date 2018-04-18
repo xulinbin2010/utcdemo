@@ -30,7 +30,7 @@ h4 {
     float: left;
     width: 35px;
     height: 55px;
-    padding-left: 3px;
+    padding-left: 3px;   /* 文字*/
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: #eee;
@@ -47,6 +47,16 @@ h4 {
 }
 .myplan{
     background-color: #bceeb0;
+    height: 35px;
+}
+
+.preplan{
+     background-color: lightskyblue;
+     height: 35px;
+ }
+
+.afterplan{
+    background:yellow;
     height: 35px;
 }
 

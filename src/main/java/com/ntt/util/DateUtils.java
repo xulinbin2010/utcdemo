@@ -94,11 +94,16 @@ public class DateUtils {
 //        } catch (ParseException e) {
 //            e.printStackTrace();
 //        }
-        Date date = new Date();
-        System.out.println(convertDay(date));
-        String dt1="2018-04-17";
-        String dt2="2018-04-19";
-        int i = daysBetween(format(dt2), format(dt1));
+//        Date date = new Date();
+//        System.out.println(convertDay(date));
+//        String dt1="2018-04-17";
+//        String dt2="2018-04-19";
+//        int i = daysBetween(format(dt2), format(dt1));
+//        System.out.println("i = " + i);
+
+        String dt1="2018-05-17";
+        String dt2="2018-05-19";
+        int i = DateUtils.daysBetween(format(dt2),format(dt1));
         System.out.println("i = " + i);
 
 

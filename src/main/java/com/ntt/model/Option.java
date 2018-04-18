@@ -13,6 +13,8 @@ public class Option {
 
     private Integer gThree;
 
+    private String oStartDate;
+
     public Integer getOid() {
         return oid;
     }
@@ -59,5 +61,13 @@ public class Option {
 
     public void setgThree(Integer gThree) {
         this.gThree = gThree;
+    }
+
+    public String getoStartDate() {
+        return oStartDate;
+    }
+
+    public void setoStartDate(String oStartDate) {
+        this.oStartDate = oStartDate;
     }
 }

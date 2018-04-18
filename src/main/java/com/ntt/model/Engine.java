@@ -17,6 +17,14 @@ public class Engine {
 
     private Option option;
 
+    private Integer g0days;
+
+    private Integer g1days;
+
+    private Integer g2days;
+
+    private Integer g3days;
+
     public Integer getId() {
         return id;
     }
@@ -71,5 +79,37 @@ public class Engine {
 
     public void setOption(Option option) {
         this.option = option;
+    }
+
+    public Integer getG0days() {
+        return g0days;
+    }
+
+    public void setG0days(Integer g0days) {
+        this.g0days = g0days;
+    }
+
+    public Integer getG1days() {
+        return g1days;
+    }
+
+    public void setG1days(Integer g1days) {
+        this.g1days = g1days;
+    }
+
+    public Integer getG2days() {
+        return g2days;
+    }
+
+    public void setG2days(Integer g2days) {
+        this.g2days = g2days;
+    }
+
+    public Integer getG3days() {
+        return g3days;
+    }
+
+    public void setG3days(Integer g3days) {
+        this.g3days = g3days;
     }
 }
