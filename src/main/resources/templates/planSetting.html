@@ -12,7 +12,6 @@
     <script src="Bootstrap/jquery-1.9.1.min.js"></script>
     <script src="Bootstrap/bootstrap/js/bootstrap.min.js"></script>
     <script src="Bootstrap/bootstrap-table.min.js"></script>
-    <script src="Bootstrap/bootstrap-datetimepicker.min.js"></script>
     <script src="Bootstrap/bootstrap-select-1.12.4/js/bootstrap-select.js"></script>
 
 </head>
@@ -78,15 +77,7 @@
 
                         <label id="errorOption" for="inputOptionId" class="col-sm-3 control-label"></label>
                     </div>
-                    <div class="form-group">
-                        <label for="inputStart_date" class="col-sm-3 control-label">Actual start date</label>
-                        <div class="input-group date form_date col-sm-7">
-                            <input class="form-control" id="inputStart_date" name="startDate"  type="text" readonly>
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                        </div>
-                        <label id="errorStart_date" for="inputStart_date" class="col-sm-3 control-label"></label>
-                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">
@@ -144,16 +135,7 @@
                         </div>
                         <label id="errorOptionId" class="col-sm-3 control-label"></label>
                     </div>
-                    <div class="form-group" >
-                        <label for="editStartDate" class="col-sm-3 control-label">Actual start date</label>
-                        <div class="input-group date form_date col-sm-7" data-date="" data-date-format="yyyy-mm-dd"
-                             data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                            <input class="form-control" id="editStartDate" name="startDate"  type="text" readonly>
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                        </div>
-                        <label id="errorEditStartDate" class="col-sm-3 control-label"></label>
-                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">
@@ -275,10 +257,6 @@
             }, {
                 title : "option",
                 field : "option.opname"
-            }, {
-                title : "Acutal start date",
-                field : "startDate",
-                sortable : true
             }],
             search : true,//搜索
             searchOnEnterKey : true,
